@@ -4,7 +4,7 @@
     <button class="btn" @click="handleBtn" type="button">
       {{ isOpen ? "收起" : "选择" }}
     </button>
-    <div class="selector" v-show="isOpen">
+    <div class="selector" v-show="isOpen" ref="selector">
       <div class="item" id="all">
         <div class="label" id="all">全选</div>
         <input
@@ -20,7 +20,7 @@
           type="checkbox"
           :value="i"
           @change="handleCheck(i, ($event.target as HTMLInputElement).checked)"
-          :id="i.toString()"
+          v-model="checkBoxes[i]"
         />
       </div>
     </div>
@@ -61,7 +61,7 @@
 </style>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref, watch } from "vue";
+import { defineComponent, onMounted, ref, VNodeRef, watch } from "vue";
 
 export default defineComponent({
   name: "TimeSelector",
@@ -73,17 +73,16 @@ export default defineComponent({
   setup(props, context) {
     const checkedValue = ref<Array<Number>>([]);
     const isOpen = ref<Boolean>(false);
-
+    const checkBoxes = ref<Array<boolean>>(new Array(props.range! + 1));
+    console.log(checkBoxes);
     function updateCheck() {
       context.emit("update:modelValue", checkedValue.value);
       for (let i = 1; i <= props.range!; i++) {
-        const checkbox = document.getElementById(
-          i.toString()
-        ) as HTMLInputElement;
+
         if (checkedValue.value.includes(i)) {
-          checkbox.checked = true;
+          checkBoxes.value[i] = true
         } else {
-          checkbox.checked = false;
+          checkBoxes.value[i] = false
         }
       }
     }
@@ -116,7 +115,9 @@ export default defineComponent({
       handleAllCheck,
       checkedValue,
       isOpen,
-      handleBtn
+      handleBtn,
+      // checkboxes,
+      checkBoxes,
     };
   },
 });

@@ -2,9 +2,8 @@
   <div class="k-select">
     <div class="label">{{ label }}</div>
     <select
-      type="select"
       :value="modelValue"
-      @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+      @input="$emit('update:modelValue', ($event.target as HTMLSelectElement).value)"
     >
       <option v-for="(i, index) in range" :value="index + 1">{{ i }}</option>
     </select>

@@ -110,7 +110,7 @@
 </template>
 
 <script lang="ts">
-import { ref, defineComponent, computed } from "vue";
+import { ref, defineComponent, computed, watch } from "vue";
 import { getLessonsTableAPI } from "@/apis/getLessonsTable";
 import LessonsTable from "@/components/LessonsTable/index.vue";
 import WeekSelector from "@/components/WeekSelector/index.vue";
@@ -195,7 +195,6 @@ export default defineComponent({
     function showAddLessonPop() {
       showPop.value = true;
       popName.value = "add";
-      // TODO:
     }
     function showLoginPop() {
       if (!isLogin.value) {
@@ -262,6 +261,7 @@ export default defineComponent({
     const editLesson = ref<boolean>(false);
     function handleEdit() {
       editLesson.value = true;
+      handelFlushTable();
       lessonDetailTime.value.time = lessonDetail.value?.time
         .split(",")
         .map(toNumber)!;
@@ -308,7 +308,12 @@ export default defineComponent({
       },
       set(val) {},
     });
-
+    watch(showPop, () => {
+      if (showPop.value == false) {
+        editLesson.value = false;
+        isRegister.value = false;
+      }
+    });
     return {
       lessons,
       copyright,
