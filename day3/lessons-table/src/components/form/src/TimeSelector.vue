@@ -61,7 +61,7 @@
 </style>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref, VNodeRef, watch } from "vue";
+import { defineComponent, ref } from "vue";
 
 export default defineComponent({
   name: "TimeSelector",
@@ -116,7 +116,6 @@ export default defineComponent({
       checkedValue,
       isOpen,
       handleBtn,
-      // checkboxes,
       checkBoxes,
     };
   },

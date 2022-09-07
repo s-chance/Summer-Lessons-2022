@@ -16,8 +16,36 @@ Vue.js 前端开发实战之课程表的实现(二)
   - 课程表组件修改
   - 实现组件 k-time-selector, k-select
 
+## Vue
+
+### v-if v.s v-show
+v-if false -> 不会渲染 DOM
+v-show false -> display:none;
+
+
+## V-model
+V-model 双向绑定, 语法糖.
+V-model:
+value, @input
+
+## JS Sort 字典序
+1,10,11,12,13,14,15,16,2,3,4,5,6,7 ...
+
+## number & Number
+Number -> NumberConstructor
+
+## `...` 拓展运算符 解包
+
+## `!` `?`
+`!` !=, 取反, 
+TS: 强制类型断言
+`?.` ES6 [可选链](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
 
 ## API
+
+API Interface
+Apifox 软件 格式化 API文档 测试API, mock
+
 **Axios**
 
 > Ajax: Asynchronous JavaScript and XML 
@@ -45,6 +73,19 @@ Method:
 - emits -> defineemits;
 - no return
 
+# 其他
+
+## 学习
+程序员: keep learning
+前端:
+
+`查`
+
+`问`
+
+学到了东西 -> 做(产出)
+
+Blog 总结
 
 # 大作业
 - 两个人组队: 建议一个前端, 一个后端. 也可以不组队.
