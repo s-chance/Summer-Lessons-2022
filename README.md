@@ -12,6 +12,6 @@
 
 可以选择安装 VS Code ， 或者 Goland ，对于 VS Code，需要安装 Go 插件
 
-![cs](README.assets/cs-1662640942495.png)
+![cs](README.assets/cs.png)
 
 ![jg](README.assets/jg.png)
