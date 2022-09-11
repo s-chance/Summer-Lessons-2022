@@ -1,0 +1,17 @@
+dev: true
+
+server:
+  port: "8888"
+  allow_origins:
+    - "http://localhost:3000"
+
+db:
+  user_name: "class_schedule_admin"
+  password: "password"
+  address: "localhost:3306"
+  db_name: "class_schedule"
+
+jwt:
+  secret: "secretKey"
+  issuer: "issuer"
+  expires: 48
