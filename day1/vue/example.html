@@ -8,12 +8,13 @@
   <body>
     <h1>Hello 精弘</h1>
     <div id="app">
-      <h2>{{department}}</h2>
-      <button @click="handleClick">{{count}}</button>
+      <h2>{{department}} RP {{count}}</h2>
+      <button @click="handleClick">Click me</button>
     </div>
   </body>
   <script>
     const vm = new Vue({
+      // 通过el绑定div的id,data规定"{{}}"对象的初始值
       el: "#app",
       data: {
         department: "技术部",
@@ -21,8 +22,12 @@
       },
       methods: {
         handleClick() {
-          this.count++;
+          console.log(this);
+          this.increase();
         },
+        increase() {
+          this.count++;
+        }
       },
       computed: {},
     });
